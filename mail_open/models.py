@@ -12,3 +12,7 @@ class MailOpen(models.Model):
 
     def __str__(self):
         return self.mail
+
+    @staticmethod
+    def count_unique_mails():
+        return MailOpen.objects.order_by('mail').distinct('mail').count()
